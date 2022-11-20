@@ -1,16 +1,28 @@
-# This is a sample Python script.
+import random
+import numpy as np
+from math import sqrt
+import matplotlib.pyplot as plt
+def deviation(zbior, srednia):
+    licznik = 0
+    for elem in zbior:
+        licznik += (elem - srednia) * (elem - srednia)
+    return sqrt(licznik / (len(zbior) - 1))
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+def meanSet(X, y):
+    return np.mean(X), np.mean(y)
+
+def coefficient(X, y, sizeX):
+    pass
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+if __name__ == "__main__":
+    # observations / data
+    X = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    y = np.array([random.randint(0, 9) for i in range(11)])
+    meanX, meany = meanSet(X, y)
+    print(meanX, meany)
+    # coefficient(X, y, np.size(X))
+    #
+    # print(X)
+    # print(y)
