@@ -18,8 +18,6 @@ def StandardDeviation(set, mean):
         counter += (elem - mean) * (elem - mean)
     return sqrt(counter / (len(set) - 1))
 
-def MeanSet(X, y):
-    return np.mean(X), np.mean(y)
 def Pearson(X, y):
     n = len(X)
     meanX = np.mean(X)
@@ -46,26 +44,20 @@ def LinearFunctionCoefficient(x):
 
 
 if __name__ == "__main__":
-    # observations / data
-    # X = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-    # y = np.array([random.randint(0, 9) for i in range(len(X))])
-    X = np.array([1, 2, 3, 4, 5])
-    y = np.array([4, 6, 9, 11, 18])
-    meanX, meany = MeanSet(X, y)
-    print(meanX, meany)
-    deviationX, deviationy  = StandardDeviation(X, meanX), StandardDeviation(y, meany)
-    print(deviationX, deviationy)
+    X = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    y = np.array([2, 1, 1, 6, 9, 4, 1, 6, 8, 10, 12])
+    # X = np.array([1, 2, 3, 4, 5])
+    # y = np.array([4, 6, 9, 11, 18])
+    deviationX, deviationy  = StandardDeviation(X, np.mean(X)), StandardDeviation(y, np.mean(y))
     R = Pearson(X, y)
-    print(R)
-    print()
-    obj = Regression_Linear(deviationX, deviationy, meanX, meany, R)
+    obj = Regression_Linear(deviationX, deviationy, np.mean(X), np.mean(y), R)
     print(obj.meanX)
     print(obj.meany)
     print(obj.deviationX)
     print(obj.deviationy)
     print(obj.R)
 
-    x = np.linspace(0, 5, 30)
+    x = np.linspace(min(X), max(X), 30)
     print(x)
     plt.scatter(X, y)
     plt.plot(x, LinearFunctionCoefficient(x), 'r', label='Linear Regression')
