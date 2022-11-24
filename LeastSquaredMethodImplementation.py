@@ -3,6 +3,8 @@ import numpy as np
 from math import sqrt
 import matplotlib.pyplot as plt
 
+import cython
+
 
 class Regression_Linear:
     def __init__(self, deviationX, deviationy, meanX, meany, R):
