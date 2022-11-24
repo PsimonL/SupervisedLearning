@@ -4,7 +4,7 @@ from math import sqrt
 import matplotlib.pyplot as plt
 
 
-
+import cython
 
 class Regression_Linear:
     def __init__(self, deviationX, deviationy, meanX, meany, R):
@@ -14,11 +14,11 @@ class Regression_Linear:
         self.meany = meany
         self.R = R
 
-def StandardDeviation(set, mean):
+def StandardDeviation(inputSet, mean):
     counter = 0
-    for elem in set:
+    for elem in inputSet:
         counter += (elem - mean) * (elem - mean)
-    return sqrt(counter / (len(set) - 1))
+    return sqrt(counter / (len(inputSet) - 1))
 
 def Pearson(X, y):
     n = len(X)
@@ -42,7 +42,13 @@ def LinearFunctionCoefficient(x):
     b = obj.meany - (a * obj.meanX)
     return a * x + b
 
-
+# cdef add():
+#     cdef int a = 1
+#     cdef int b = 2
+#     return a+b
+#
+# def wrapper():
+#     return add()
 
 
 if __name__ == "__main__":
@@ -67,4 +73,5 @@ if __name__ == "__main__":
     plt.ylabel('OY')
     plt.legend()
     plt.show()
+
 

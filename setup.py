@@ -1,5 +1,6 @@
 from setuptools import setup
 from Cython.Build import cythonize
+
 # https://www.youtube.com/watch?v=Ic1oE6SEOBs&t=149s
 # https://cython.readthedocs.io/en/latest/src/tutorial/cython_tutorial.html
 
@@ -11,5 +12,5 @@ from Cython.Build import cythonize
 # After code generations we dont need .pyx file, could be deleted
 
 setup(
-    ext_modules = cythonize("LeastSquaredMethodImplementation.pyx")
+    ext_modules=cythonize("LeastSquaredMethodImplementation.pyx")
 )
