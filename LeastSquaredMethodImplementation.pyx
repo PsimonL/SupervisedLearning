@@ -3,7 +3,7 @@ import numpy as np
 from math import sqrt
 import matplotlib.pyplot as plt
 
-import cython
+
 
 
 class Regression_Linear:
