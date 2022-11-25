@@ -1,4 +1,3 @@
-import cython
 import LeastSquaredMethodImplementation
 
 LeastSquaredMethodImplementation.wrapper()
